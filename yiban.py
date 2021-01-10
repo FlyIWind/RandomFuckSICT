@@ -29,7 +29,7 @@ class YiBan:
             "imei": "shabiyiban",
             "password": self.passwd
         }
-        # 最新不需要加密密码直接登录的接口来自我B站视频评论用户：破损的鞘翅(bilibili_id:45807603)
+        # 最新不需要加密密码直接登录的接口来自B站视频评论用户：破损的鞘翅(bilibili_id:45807603)
         r = self.request(url="https://mobile.yiban.cn/api/v3/passport/login", params=params)
         if r is not None and str(r["response"]) == "100":
             self.access_token = r["data"]["user"]["access_token"]

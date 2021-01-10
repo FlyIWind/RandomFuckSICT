@@ -2,11 +2,15 @@ import json
 import random
 import time
 import traceback
+import sched
 from yiban import YiBan
 import util
-if __name__ == '__main__':
+
+
+
+def main(phone_number,password):
     try:
-        yb = YiBan("手机号", "密码")#TODO:修改为你的手机号和密码
+        yb = YiBan(phone_number, password)
         yb.login()
         yb.getHome()
         print("登录成功 %s"%yb.name)
@@ -40,3 +44,13 @@ if __name__ == '__main__':
     except Exception as e:
         print("出错啦")
         print(e)
+
+
+
+
+if __name__ == '__main__':
+    inc = random.randint(0, 900)#TODO:修改第二个参数为你要延迟上报的随机时间最大值，单位秒
+    schedule = sched.scheduler(time.time, time.sleep)
+    print("%s后进行上报" % inc)
+    schedule.enter(inc, 0, main, ("手机号", "密码"))#TODO:修改为你的手机号和密码
+    schedule.run()
