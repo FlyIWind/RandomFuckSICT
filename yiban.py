@@ -111,7 +111,6 @@ class YiBan:
             cookies=self.COOKIES)
 
     def submit(self, data, extend, wfid):
-        #print(self.request("https://api.uyiban.com/workFlow/c/my/form/%s?CSRF=%s" % (wfid, self.CSRF),cookies=self.COOKIES))
         params = {
             "data": data,
             "extend": extend

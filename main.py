@@ -30,9 +30,9 @@ def main(phone_number,password):
                 "content": [{"label": "任务名称", "value": task_detail["Title"]},
                             {"label": "发布机构", "value": task_detail["PubOrgName"]},
                             {"label": "发布人", "value": task_detail["PubPersonName"]}]}
-            dict_form = {"361a5d69d6db93e55bb656b4185e0447": ["36.2", "36.3", "36.4", "36.5"][random.randint(0, 3)],
-                        "8f9a18d14676aa05e2dc26637225ffa4": ["36.2", "36.3", "36.4", "36.5"][random.randint(0, 3)],
-                        "966c57278836ba050a382a5b70de7582": ["36.2", "36.3", "36.4", "36.5"][random.randint(0, 3)]}
+            dict_form = {"75462b7c9377ddf08710278eb6338087": ["36.2", "36.3", "36.4", "36.5"][random.randint(0, 3)],
+                        "6ea1743a49dfc3ac0fd293cb67c8bfd3": ["36.2", "36.3", "36.4", "36.5"][random.randint(0, 3)],
+                        "e8d851f72d99f9126ff7f4dd9538f6ca": ["36.2", "36.3", "36.4", "36.5"][random.randint(0, 3)]}
             submit_result = yb.submit(json.dumps(dict_form, ensure_ascii=False), json.dumps(
                 ex, ensure_ascii=False), task_detail["WFId"])
             if submit_result["code"] == 0:
@@ -49,7 +49,7 @@ def main(phone_number,password):
 
 
 if __name__ == '__main__':
-    inc = random.randint(0, 900)#TODO:修改第二个参数为你要延迟上报的随机时间最大值，单位秒
+    inc = random.randint(0, 10)#TODO:修改第二个参数为你要延迟上报的随机时间最大值，单位秒
     schedule = sched.scheduler(time.time, time.sleep)
     print("%s后进行上报" % inc)
     schedule.enter(inc, 0, main, ("手机号", "密码"))#TODO:修改为你的手机号和密码
